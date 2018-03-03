@@ -4,7 +4,7 @@
 # sudo -E bash -x setup_development.sh
 
 # ${source_root} 是代码所在目录
-source_root='/root/web21'
+source_root='/root/web'
 
 
 # 换成中科大的源
@@ -25,9 +25,9 @@ sudo rm -f /etc/nginx/sites-enabled/*
 sudo rm -f /etc/nginx/sites-available/*
 
 # 建立一个软连接
-sudo ln -s -f ${source_root}/web21.conf /etc/supervisor/conf.d/web21.conf
+sudo ln -s -f ${source_root}/web.conf /etc/supervisor/conf.d/web.conf
 # 不要再 sites-available 里面放任何东西
-sudo ln -s -f ${source_root}/web21.nginx /etc/nginx/sites-enabled/web21
+sudo ln -s -f ${source_root}/web.nginx /etc/nginx/sites-enabled/web
 
 # 设置文件夹权限给 nginx 用
 sudo chmod o+xr /root
