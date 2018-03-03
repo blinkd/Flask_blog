@@ -1,0 +1,19 @@
+import os.path
+import time
+import json
+
+
+def log(*args, **kwargs):
+    # time.time() 返回 unix time
+    # 如何把 unix time 转换为普通人类可以看懂的格式呢？
+    format = '%H:%M:%S'
+    value = time.localtime(int(time.time()))
+    dt = time.strftime(format, value)
+    with open('blink.log.txt', 'a', encoding='utf-8') as f:
+        print(dt, *args, **kwargs)
+        print(dt, *args, file=f, **kwargs)
+
+def formatted_time(unixtime):
+    dt = time.localtime(unixtime)
+    ds = time.strftime('%Y-%m-%d %H:%M:%S', dt)
+    return ds
